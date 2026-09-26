@@ -30,10 +30,10 @@ from preprocessing import run_preprocessing_pipeline
 
 app = FastAPI(title="Housing Price Regression Backend")
 
-# Allow the existing Vite React frontend (running on 5173) to call this API.
+# Allow the deployed Vercel React frontend to call this API.
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_origins=["*"],  # Updated to accept cross-origin requests from Vercel
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
