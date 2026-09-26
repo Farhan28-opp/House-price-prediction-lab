@@ -30,20 +30,18 @@ from preprocessing import run_preprocessing_pipeline
 
 app = FastAPI(title="Housing Price Regression Backend")
 
-# Allow the deployed Vercel React frontend to call this API.
-# Allow the deployed Vercel React frontend to call this API.
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
+        "https://farhan28-opp.github.io",
         "https://house-price-prediction-lab.vercel.app",
         "http://localhost:5173",
-        "http://127.0.0.1:5173"
+        "http://127.0.0.1:5173",
     ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 @app.get("/")
 def health():
